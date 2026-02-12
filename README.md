@@ -21,6 +21,6 @@ This repository can be used to create a simple Azure hosted static website.
 18. Git and GitHub should be utilized to manage code
 19. Each completed User Story be be associated wit a GitHub commit message that identifies the story identifier
 
-These are the code standards for Software Engineering with Eric Pogue and they have been met for this project. 
+These are the code standards for Software Engineering with Eric Pogue and they have been met for this project. However there may be be more than 100 or 120 characters, however this is what the video calls for.
 However the code was created using Brad Schiff's tutortial: https://www.youtube.com/watch?v=AVmGmLFcukM&t=0s 
 All credit goes to Brad Schiff. 
