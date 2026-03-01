@@ -24,6 +24,7 @@ function createBreedList(breedList) {
     `
     document.getElementById("breed").innerHTML = selectHTML
     document.getElementById("breedSelect").addEventListener("change", function () {
+        console.log("Breed selected: ", this.value)
         loadByBreed(this.value)
     })
 }
