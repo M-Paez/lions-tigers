@@ -45,25 +45,37 @@ function createSlideshow(images) {
     clearInterval(timer)
     clearTimeout(deleteFirstPhotoDelay)
 
+    if(!images || images.length == 0) {
+        document.getElementById("slideshow").innerHTML = "<p> No images found for this breed. </p>"
+        return
+    }
+
+    const slideshow = document.getElementById("slideshow")
+
     if (images.length > 1) {
-        document.getElementById("slideshow").innerHTML = `
-    <div class="slide" style="background-image: url('${images[0]}')"></div>
-    <div class="slide" style="background-image: url('${images[1]}')"></div>
-    `
-    currentPosition += 2
-    if (images.length == 2) currentPosition = 0 
-    timer = setInterval(nextSlide, 3000)
+        slideshow.innerHTML = `
+            <div class="slide" style="background-image: url('${images[0]}')"></div>
+            <div class="slide" style="background-image: url('${images[1]}')"></div>
+        `
+        currentPosition = 2
+        if (images.length == 2) currentPosition=0
+        timer=setInterval(nextSlide, 3000)
     } else {
-        document.getElementById("slideshow").innerHTML = `
-    <div class="slide" style="background-image: url('${images[0]}')"></div>
-    <div class="slide"></div>
-    `
+        slideshow.innerHTML = `
+            <div class="slide" style="background-image: url('${images[0]}')"></div>
+        `
     }
 
     function nextSlide() {
-        document.getElementById("slideshow").insertAdjacentHTML("beforeend", `<div class="slide" style="background-image: url('${images[currentPosition]}')"></div>`)
+        slideshow.insertAdjacentHTML(
+            "beforeend",
+            `<div class="slide" style="background-image: url('${images[currentPosition]}')"></div>`
+        )
         deleteFirstPhotoDelay = setTimeout(function () {
-            document.querySelector(".slide").remove()
+            const firstSlide = document.querySelector(".slide")
+            if (firstSlide) {
+                firstSlide.remove()
+            }
         }, 1000)
         if (currentPosition + 1 >= images.length) {
             currentPosition = 0
