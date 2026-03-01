@@ -26,3 +26,8 @@ However the code was created using Brad Schiff's tutortial: https://www.youtube.
 All credit goes to Brad Schiff. 
 
 This project was done by Molly Paez
+
+During Sprint 3 it came to my attention that the slideshow function wasn't working. Going over the video again I could not figure out what was wrong.
+I turned to ChatGPT where I found out I had API, slides, and CSS issues. After the code was rewritten a bit I asked ChatGPT to explain what went wrong. I understand what happened and how to prevent it in the future. 
+
+
