@@ -30,13 +30,26 @@ function createBreedList(breedList) {
 }
 
 async function loadByBreed(breed) {
-    if (breed != "Choose a Dog Breed") {
-        console.log("Fetching images for: ", breed)
+    if (breed !== "Choose a Dog Breed") {
+        try {
+            console.log("Fetching images for:", breed)
 
-        const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`)
-        const data = await response.json()
-        console.log("Image data: ", data)
-        createSlideshow(data.message)
+            const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`)
+            const data = await response.json()
+
+            console.log("Full API response:", data)
+
+            if (data.status !== "success" || !Array.isArray(data.message)) {
+                document.getElementById("slideshow").innerHTML =
+                    "<p style='color:white;text-align:center;margin-top:20px;'>No images available for this breed.</p>"
+                return
+            }
+
+            createSlideshow(data.message)
+
+        } catch (error) {
+            console.log("Error fetching images:", error)
+        }
     }
 }
 
