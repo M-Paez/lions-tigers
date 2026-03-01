@@ -24,3 +24,5 @@ This repository can be used to create a simple Azure hosted static website.
 These are the code standards for Software Engineering with Eric Pogue and they have been met for this project. However there may be be more than 100 or 120 characters, however this is what the video calls for.
 However the code was created using Brad Schiff's tutortial: https://www.youtube.com/watch?v=AVmGmLFcukM&t=0s 
 All credit goes to Brad Schiff. 
+
+This project was done by Molly Paez
