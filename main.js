@@ -14,14 +14,18 @@ async function start() {
 start()
 
 function createBreedList(breedList) {
-    document.getElementById("breed").innerHTML = `
-    <select onchange="loadByBreed(this.value)">
-      <option>Choose a Dog Breed</option>
-      ${Object.keys(breedList).map(function (breed) {
+    const selectHTML = `
+    <select id="breedSelect">
+    <option>Choose a Dog Breed</option>
+    ${Object.keys(breedList).map(function (breed) {
         return `<option>${breed}</option>`
-      }).join('')}
+    }).join('')}
     </select>
     `
+    document.getElementById("breed").innerHTML = selectHTML
+    document.getElementById("breedSelect").addEventListener("change", function () {
+        loadByBreed(this.value)
+    })
 }
 
 async function loadByBreed(breed) {
